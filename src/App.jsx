@@ -212,7 +212,8 @@ function App() {
       {/* Footer */}
       <footer className="px-6 py-12 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-4 text-sm mb-3">
+          <p className="text-gray-500 text-sm mb-3">© 2025 ReflexFlow. All rights reserved.</p>
+          <div className="flex items-center justify-center gap-4 text-sm mb-2">
             <a 
               href="/privacy" 
               onClick={(e) => {
@@ -239,10 +240,9 @@ function App() {
               Terms of Service
             </a>
           </div>
-          <p className="text-xs text-gray-500 mb-2">
+          <p className="text-xs text-gray-500">
             Medical Disclaimer: ReflexFlow is an educational habituation program and not a medical device. Use at your own risk.
           </p>
-          <p className="text-gray-500 text-sm">© 2025 ReflexFlow. All rights reserved.</p>
         </div>
       </footer>
 
