@@ -209,29 +209,10 @@ function App() {
         </div>
       </section>
 
-      {/* Medical Disclaimer Section */}
-      <section className="px-6 py-8 bg-gray-100">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white border border-gray-300 rounded-lg p-6">
-            <h3 className="text-xs font-bold text-gray-900 mb-3 uppercase tracking-wide">Medical Disclaimer</h3>
-            <p className="text-xs text-gray-600 leading-relaxed mb-3">
-              ReflexFlow provides educational content and physical habituation techniques intended for personal development and sensory conditioning only. ReflexFlow is not a medical device, and the information provided does not constitute medical advice, diagnosis, or treatment.
-            </p>
-            <p className="text-xs text-gray-600 leading-relaxed mb-3">
-              The pharyngeal reflex (gag reflex) is a natural protective mechanism. By using this app, you acknowledge that you are voluntarily engaging in desensitization exercises. Always consult with a qualified healthcare professional before beginning any new physical training, especially if you have underlying gastrointestinal, neurological, or respiratory conditions.
-            </p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Never use these techniques while eating, drinking, or in any situation where a suppressed reflex could pose a choking hazard. Use of this program is at your own risk.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="px-6 py-12 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-500 text-sm mb-3">© 2025 ReflexFlow. All rights reserved.</p>
-          <div className="flex items-center justify-center gap-4 text-sm">
+          <div className="flex items-center justify-center gap-4 text-sm mb-3">
             <a 
               href="/privacy" 
               onClick={(e) => {
@@ -258,6 +239,10 @@ function App() {
               Terms of Service
             </a>
           </div>
+          <p className="text-xs text-gray-500 mb-2">
+            Medical Disclaimer: ReflexFlow is an educational habituation program and not a medical device. Use at your own risk.
+          </p>
+          <p className="text-gray-500 text-sm">© 2025 ReflexFlow. All rights reserved.</p>
         </div>
       </footer>
 
