@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
+import Privacy from './Privacy'
+import Terms from './Terms'
 
 // Initialize Supabase client
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
@@ -7,14 +9,33 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
   const [country, setCountry] = useState('')
 
+  // Handle routing
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const path = window.location.pathname
+      if (path === '/privacy') {
+        setCurrentPage('privacy')
+      } else if (path === '/terms') {
+        setCurrentPage('terms')
+      } else {
+        setCurrentPage('home')
+      }
+    }
+
+    handleRouteChange()
+    window.addEventListener('popstate', handleRouteChange)
+    return () => window.removeEventListener('popstate', handleRouteChange)
+  }, [])
+
   // Get country from URL parameters (from Facebook ads UTM)
-  useState(() => {
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     setCountry(params.get('country') || 'unknown')
   }, [])
@@ -55,6 +76,16 @@ function App() {
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  // Show privacy page if route is /privacy
+  if (currentPage === 'privacy') {
+    return <Privacy />
+  }
+
+  // Show terms page if route is /terms
+  if (currentPage === 'terms') {
+    return <Terms />
   }
 
   return (
@@ -178,10 +209,55 @@ function App() {
         </div>
       </section>
 
+      {/* Medical Disclaimer Section */}
+      <section className="px-6 py-8 bg-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white border border-gray-300 rounded-lg p-6">
+            <h3 className="text-xs font-bold text-gray-900 mb-3 uppercase tracking-wide">Medical Disclaimer</h3>
+            <p className="text-xs text-gray-600 leading-relaxed mb-3">
+              ReflexFlow provides educational content and physical habituation techniques intended for personal development and sensory conditioning only. ReflexFlow is not a medical device, and the information provided does not constitute medical advice, diagnosis, or treatment.
+            </p>
+            <p className="text-xs text-gray-600 leading-relaxed mb-3">
+              The pharyngeal reflex (gag reflex) is a natural protective mechanism. By using this app, you acknowledge that you are voluntarily engaging in desensitization exercises. Always consult with a qualified healthcare professional before beginning any new physical training, especially if you have underlying gastrointestinal, neurological, or respiratory conditions.
+            </p>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Never use these techniques while eating, drinking, or in any situation where a suppressed reflex could pose a choking hazard. Use of this program is at your own risk.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="px-6 py-12 bg-gray-50">
-        <div className="max-w-6xl mx-auto text-center text-gray-500 text-sm">
-          <p>© 2025 Confidence App. All rights reserved.</p>
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-gray-500 text-sm mb-3">© 2025 ReflexFlow. All rights reserved.</p>
+          <div className="flex items-center justify-center gap-4 text-sm">
+            <a 
+              href="/privacy" 
+              onClick={(e) => {
+                e.preventDefault()
+                window.history.pushState({}, '', '/privacy')
+                setCurrentPage('privacy')
+                window.scrollTo(0, 0)
+              }}
+              className="text-gray-600 hover:text-gray-900 transition-colors underline"
+            >
+              Privacy Policy
+            </a>
+            <span className="text-gray-400">•</span>
+            <a 
+              href="/terms" 
+              onClick={(e) => {
+                e.preventDefault()
+                window.history.pushState({}, '', '/terms')
+                setCurrentPage('terms')
+                window.scrollTo(0, 0)
+              }}
+              className="text-gray-600 hover:text-gray-900 transition-colors underline"
+            >
+              Terms of Service
+            </a>
+          </div>
         </div>
       </footer>
 
