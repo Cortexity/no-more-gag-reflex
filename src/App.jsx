@@ -269,7 +269,7 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
             Your journey starts here.
