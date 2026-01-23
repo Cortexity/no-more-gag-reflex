@@ -112,7 +112,7 @@ function App() {
             Complete Habituation in 21 Days
           </p>
           <p className="text-xl md:text-2xl text-purple-300 mb-12 font-light">
-            Master Sensitivity & Control
+            Systematic desensitization techniques
           </p>
           
           <button 
@@ -175,7 +175,7 @@ function App() {
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-red-400 text-xl flex-shrink-0">❌</span>
-                  <p className="text-purple-200 leading-relaxed">Lack of Oral Confidence</p>
+                  <p className="text-purple-200 leading-relaxed">Lack of Confidence</p>
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@ function App() {
             {/* After Card */}
             <div className="glass-dark rounded-3xl p-8 border-2 border-neon-green-500/30 hover:border-neon-green-500/50 transition-all duration-300 neon-glow-green">
               <h3 className="text-2xl font-bold text-neon-green-400 mb-6 text-center">
-                After 21 Days
+                21 Days with ReflexFlow
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -200,7 +200,7 @@ function App() {
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
-                  <p className="text-white leading-relaxed font-medium">Total Intimacy Confidence</p>
+                  <p className="text-white leading-relaxed font-medium">Total Confidence</p>
                 </div>
               </div>
             </div>
@@ -215,14 +215,14 @@ function App() {
             
             {/* Feature 1: The Roadmap */}
             <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-purple" style={{
+              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-purple mx-auto" style={{
                 background: 'linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)'
               }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 The Roadmap
               </h3>
               <p className="text-purple-200 leading-relaxed">
@@ -232,14 +232,14 @@ function App() {
 
             {/* Feature 2: The Haptic Trainer */}
             <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-pink" style={{
-                background: 'linear-gradient(135deg, #ff1493 0%, #a855f7 100%)'
+                <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-pink mx-auto" style={{
+                  background: 'linear-gradient(135deg, #ff1493 0%, #a855f7 100%)'
               }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 The Haptic Trainer
               </h3>
               <p className="text-purple-200 leading-relaxed">
@@ -249,14 +249,14 @@ function App() {
 
             {/* Feature 3: The Science */}
             <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-green" style={{
+              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-green mx-auto" style={{
                 background: 'linear-gradient(135deg, #39ff14 0%, #00d4ff 100%)'
               }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 The Science
               </h3>
               <p className="text-purple-200 leading-relaxed">
@@ -285,7 +285,7 @@ function App() {
             </div>
             <div className="text-center">
               <div className="text-6xl font-bold mb-2" style={{color: '#39ff14', textShadow: '0 0 20px rgba(57, 255, 20, 0.6)'}}>100%</div>
-              <div className="text-purple-200">Completely discreet</div>
+              <div className="text-purple-200">Discreet</div>
             </div>
           </div>
         </div>
@@ -319,7 +319,7 @@ function App() {
               Unlock Your Full Potential
             </h2>
             <p className="text-xl text-purple-200 mb-12 font-light">
-              Science-backed conditioning for intimate moments
+              Science-backed reflex regulation
             </p>
             <button 
               onClick={handleDownloadClick}
