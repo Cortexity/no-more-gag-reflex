@@ -89,78 +89,85 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-brand-purple-900 via-brand-purple-800 to-brand-purple-700 overflow-hidden">
+      {/* Animated background effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative px-6 pt-20 pb-32 md:pt-32 md:pb-48">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-gray-900 mb-6">
-            Confidence.
-            <br />
-            Redefined.
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 text-glow-cyan">
+            ReflexFlow
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-4 font-light">
-            Transform your comfort in just 14 days.
+          <p className="text-3xl md:text-4xl font-semibold text-neon-cyan-300 mb-4">
+            Complete Habituation in 21 Days
           </p>
-          <p className="text-lg md:text-xl text-gray-500 mb-12 font-light max-w-2xl mx-auto">
-            A science-backed approach to reducing sensitivity and building lasting confidence.
+          <p className="text-xl md:text-2xl text-purple-200 mb-12 font-light">
+            Master Sensitivity & Control
           </p>
           
           <button 
             onClick={handleDownloadClick}
-            className="inline-flex items-center px-8 py-4 bg-black text-white text-lg font-medium rounded-full hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-neon-cyan-500 to-neon-pink-500 text-white text-lg font-bold rounded-full hover:scale-105 transition-all duration-300 neon-glow-cyan animate-glow-pulse"
           >
+            <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
             Download on the App Store
           </button>
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <section className="px-6 py-24 bg-gray-50">
+      {/* Feature Grid with Glassmorphism */}
+      <section className="relative px-6 py-24">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             
             {/* Feature 1: The Roadmap */}
-            <div className="text-center md:text-left">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 mx-auto md:mx-0 flex items-center justify-center">
+            <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-neon-cyan-500 to-neon-cyan-300 rounded-2xl mb-6 flex items-center justify-center neon-glow-cyan">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 The Roadmap
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                A personalized 14-day progressive program designed by experts. Each day builds on the last, gradually expanding your comfort zone with precision and care.
+              <p className="text-purple-200 leading-relaxed">
+                A personalized 21-day progressive program. Each day builds on the last, gradually expanding your comfort zone with precision and care.
               </p>
             </div>
 
             {/* Feature 2: The Haptic Trainer */}
-            <div className="text-center md:text-left">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl mb-6 mx-auto md:mx-0 flex items-center justify-center">
+            <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-neon-pink-500 to-neon-pink-300 rounded-2xl mb-6 flex items-center justify-center neon-glow-pink">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 The Haptic Trainer
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Gentle vibration patterns guide your training sessions. Real-time feedback helps you understand your progress and stay motivated throughout your transformation.
+              <p className="text-purple-200 leading-relaxed">
+                Gentle vibration patterns guide your sessions. Real-time feedback helps you understand progress and stay motivated.
               </p>
             </div>
 
             {/* Feature 3: The Science */}
-            <div className="text-center md:text-left">
-              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-2xl mb-6 mx-auto md:mx-0 flex items-center justify-center">
+            <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-neon-green-500 to-neon-green-300 rounded-2xl mb-6 flex items-center justify-center neon-glow-green">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 The Science
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Built on proven desensitization techniques used by medical professionals. Systematic exposure therapy combined with mindfulness creates lasting neurological adaptation.
+              <p className="text-purple-200 leading-relaxed">
+                Built on proven desensitization techniques. Systematic exposure therapy combined with mindfulness creates lasting adaptation.
               </p>
             </div>
 
@@ -168,51 +175,54 @@ function App() {
         </div>
       </section>
 
-      {/* Social Proof / Stats Section */}
-      <section className="px-6 py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-16">
+      {/* Stats Section */}
+      <section className="relative px-6 py-24">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16 text-glow-cyan">
             Your journey starts here.
           </h2>
           <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <div className="text-5xl font-semibold text-gray-900 mb-2">14</div>
-              <div className="text-gray-600">Days to transformation</div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-neon-cyan-400 mb-2 text-glow-cyan">21</div>
+              <div className="text-purple-200">Days to mastery</div>
             </div>
-            <div>
-              <div className="text-5xl font-semibold text-gray-900 mb-2">5</div>
-              <div className="text-gray-600">Minutes per day</div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-neon-pink-400 mb-2">5</div>
+              <div className="text-purple-200">Minutes per day</div>
             </div>
-            <div>
-              <div className="text-5xl font-semibold text-gray-900 mb-2">Private</div>
-              <div className="text-gray-600">Completely discreet</div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-neon-green-400 mb-2">100%</div>
+              <div className="text-purple-200">Completely discreet</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="px-6 py-24 bg-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-            Ready to begin?
+      {/* Final CTA with Neon Glow */}
+      <section className="relative px-6 py-24">
+        <div className="max-w-4xl mx-auto text-center glass-dark rounded-3xl p-12 md:p-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Unlock Your Full Potential
           </h2>
-          <p className="text-xl text-gray-300 mb-12 font-light">
-            Join thousands building confidence, one day at a time.
+          <p className="text-xl text-purple-200 mb-12 font-light">
+            Science-backed conditioning for intimate moments
           </p>
           <button 
             onClick={handleDownloadClick}
-            className="inline-flex items-center px-8 py-4 bg-white text-black text-lg font-medium rounded-full hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-neon-green-500 to-neon-cyan-500 text-brand-purple-900 text-lg font-bold rounded-full hover:scale-105 transition-all duration-300 neon-glow-green"
           >
+            <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
             Download on the App Store
           </button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-12 bg-gray-50">
+      <footer className="relative px-6 py-12 border-t border-purple-700/30">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-500 text-sm mb-3">© 2025 ReflexFlow. All rights reserved.</p>
+          <p className="text-purple-300 text-sm mb-3">© 2025 ReflexFlow. All rights reserved.</p>
           <div className="flex items-center justify-center gap-4 text-sm mb-2">
             <a 
               href="/privacy" 
@@ -222,11 +232,11 @@ function App() {
                 setCurrentPage('privacy')
                 window.scrollTo(0, 0)
               }}
-              className="text-gray-600 hover:text-gray-900 transition-colors underline"
+              className="text-neon-cyan-400 hover:text-neon-cyan-300 transition-colors underline"
             >
               Privacy Policy
             </a>
-            <span className="text-gray-400">•</span>
+            <span className="text-purple-500">•</span>
             <a 
               href="/terms" 
               onClick={(e) => {
@@ -235,24 +245,24 @@ function App() {
                 setCurrentPage('terms')
                 window.scrollTo(0, 0)
               }}
-              className="text-gray-600 hover:text-gray-900 transition-colors underline"
+              className="text-neon-cyan-400 hover:text-neon-cyan-300 transition-colors underline"
             >
               Terms of Service
             </a>
           </div>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-purple-400">
             Medical Disclaimer: ReflexFlow is an educational habituation program and not a medical device. Use at your own risk.
           </p>
         </div>
       </footer>
 
-      {/* Modal */}
+      {/* Modal with Glassmorphism */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-6">
-          <div className="bg-white rounded-3xl p-8 md:p-12 max-w-md w-full shadow-2xl relative">
+        <div className="fixed inset-0 bg-brand-purple-900/80 backdrop-blur-sm flex items-center justify-center z-50 px-6">
+          <div className="glass-dark rounded-3xl p-8 md:p-12 max-w-md w-full shadow-glass relative border-2 border-neon-cyan-500/30">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600"
+              className="absolute top-6 right-6 text-purple-300 hover:text-white transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -260,27 +270,27 @@ function App() {
             </button>
 
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6 mx-auto flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-neon-cyan-500 to-neon-pink-500 rounded-full mb-6 mx-auto flex items-center justify-center neon-glow-cyan">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
                 Beta Access Full
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-purple-200 leading-relaxed">
                 Join the waitlist for the next cohort. We'll notify you as soon as spots open up.
               </p>
             </div>
 
             {submitStatus === 'success' ? (
               <div className="text-center py-4">
-                <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-16 h-16 bg-neon-green-500 rounded-full mx-auto mb-4 flex items-center justify-center neon-glow-green">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="text-gray-900 font-medium">You're on the list!</p>
+                <p className="text-white font-medium text-lg">You're on the list!</p>
               </div>
             ) : (
               <form onSubmit={handleEmailSubmit} className="space-y-4">
@@ -290,17 +300,17 @@ function App() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg"
+                  className="w-full px-6 py-4 bg-white/10 border-2 border-neon-cyan-500/30 rounded-full focus:outline-none focus:border-neon-cyan-500 text-white placeholder-purple-300 text-lg backdrop-blur-sm"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-4 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition-all duration-200 disabled:bg-gray-400 text-lg"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-neon-cyan-500 to-neon-pink-500 text-white font-bold rounded-full hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg neon-glow-cyan"
                 >
                   {isSubmitting ? 'Joining...' : 'Join Waitlist'}
                 </button>
                 {submitStatus === 'error' && (
-                  <p className="text-red-600 text-sm text-center">Something went wrong. Please try again.</p>
+                  <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
                 )}
               </form>
             )}
