@@ -314,7 +314,7 @@ function App() {
           */}
 
           {/* CTA Content */}
-          <div className="text-center">
+          <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Unlock Your Full Potential
             </h2>
