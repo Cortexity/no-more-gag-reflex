@@ -90,7 +90,7 @@ function App() {
 
   return (
     <div className="min-h-screen relative overflow-hidden" style={{
-      background: 'radial-gradient(circle at center, #1a0b2e 0%, #0a0512 70%, #050505 100%)'
+      background: 'radial-gradient(circle at center, #794C9A 0%, #4a2c5e 70%, #1a0b2e 100%)'
     }}>
       {/* Animated background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -101,7 +101,11 @@ function App() {
       {/* Hero Section */}
       <section className="relative px-6 pt-20 pb-32 md:pt-32 md:pb-48">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-6 text-glow-white">
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6" style={{
+            fontFamily: "'Allura', cursive",
+            color: '#EFEAF1',
+            textShadow: '0 0 15px rgba(239, 234, 241, 0.5)'
+          }}>
             ReflexFlow
           </h1>
           <p className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -127,10 +131,10 @@ function App() {
       </section>
 
       {/* Visual Comparison Section */}
-      <section className="relative px-6 py-16">
+      <section className="relative px-6 py-8">
         <div className="max-w-5xl mx-auto">
           {/* Hero Asset - Lips with Checkmark */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <div className="inline-block" style={{
               filter: 'drop-shadow(0 0 30px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.3))'
             }}>
@@ -138,11 +142,12 @@ function App() {
                 src="/lips_with_saliva_in_middle.png" 
                 alt="21-Day Neural Adaptation Visualization" 
                 className="w-full max-w-md mx-auto rounded-2xl"
+                onError={(e) => {
+                  console.error('Image failed to load');
+                  e.target.style.display = 'none';
+                }}
               />
             </div>
-            <p className="text-xs text-purple-400 mt-4 opacity-70">
-              Visualization of the 21-Day Neural Adaptation Process
-            </p>
           </div>
 
           {/* Before vs After Comparison Cards */}
