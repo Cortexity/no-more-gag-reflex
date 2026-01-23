@@ -312,7 +312,7 @@ function App() {
           </div>
 
           {/* CTA Content */}
-          <div className="text-center glass-dark rounded-3xl p-12 md:p-16">
+          <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Unlock Your Full Potential
             </h2>
