@@ -200,7 +200,7 @@ function App() {
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
-                  <p className="text-white leading-relaxed font-medium">Total Confidence</p>
+                  <p className="text-white leading-relaxed font-medium">Controlled Response</p>
                 </div>
               </div>
             </div>
