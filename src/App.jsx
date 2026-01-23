@@ -99,7 +99,7 @@ function App() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative px-6 pt-20 pb-8 md:pt-32 md:pb-12">
+      <section className="relative px-6 pt-20 pb-4 md:pt-32 md:pb-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6" style={{
             fontFamily: "'Allura', cursive",
