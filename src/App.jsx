@@ -126,6 +126,83 @@ function App() {
         </div>
       </section>
 
+      {/* Visual Comparison Section */}
+      <section className="relative px-6 py-16">
+        <div className="max-w-5xl mx-auto">
+          {/* Hero Asset - Lips with Checkmark */}
+          <div className="text-center mb-16">
+            <div className="inline-block" style={{
+              filter: 'drop-shadow(0 0 30px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.3))'
+            }}>
+              <img 
+                src="/lips_with_saliva_in_middle.png" 
+                alt="21-Day Neural Adaptation Visualization" 
+                className="w-full max-w-md mx-auto rounded-2xl"
+              />
+            </div>
+            <p className="text-xs text-purple-400 mt-4 opacity-70">
+              Visualization of the 21-Day Neural Adaptation Process
+            </p>
+          </div>
+
+          {/* Before vs After Comparison Cards */}
+          <div className="grid md:grid-cols-2 gap-8 relative">
+            {/* Vertical Divider (Desktop Only) */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent"></div>
+
+            {/* Before Card */}
+            <div className="glass-dark rounded-3xl p-8 border-2 border-red-500/20 hover:border-red-500/40 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-red-400 mb-6 text-center">
+                Before ReflexFlow
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">High Sensitivity & Triggering</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">Performance Anxiety</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">Physical Tension & Gulping</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">Lack of Oral Confidence</p>
+                </div>
+              </div>
+            </div>
+
+            {/* After Card */}
+            <div className="glass-dark rounded-3xl p-8 border-2 border-neon-green-500/30 hover:border-neon-green-500/50 transition-all duration-300 neon-glow-green">
+              <h3 className="text-2xl font-bold text-neon-green-400 mb-6 text-center">
+                After 21 Days
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Controlled Sensory Threshold</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Calm Nasal Breathing</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Relaxed & Open Palate</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Total Intimacy Confidence</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Grid with Glassmorphism */}
       <section className="relative px-6 py-24">
         <div className="max-w-6xl mx-auto">
