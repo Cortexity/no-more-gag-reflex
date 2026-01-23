@@ -89,29 +89,34 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-purple-900 via-brand-purple-800 to-brand-purple-700 overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" style={{
+      background: 'radial-gradient(circle at center, #1a0b2e 0%, #0a0512 70%, #050505 100%)'
+    }}>
       {/* Animated background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
 
       {/* Hero Section */}
       <section className="relative px-6 pt-20 pb-32 md:pt-32 md:pb-48">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 text-glow-cyan">
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-6 text-glow-white">
             ReflexFlow
           </h1>
-          <p className="text-3xl md:text-4xl font-semibold text-neon-cyan-300 mb-4">
+          <p className="text-3xl md:text-5xl font-bold text-white mb-4">
             Complete Habituation in 21 Days
           </p>
-          <p className="text-xl md:text-2xl text-purple-200 mb-12 font-light">
+          <p className="text-xl md:text-2xl text-purple-300 mb-12 font-light">
             Master Sensitivity & Control
           </p>
           
           <button 
             onClick={handleDownloadClick}
-            className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-neon-cyan-500 to-neon-pink-500 text-white text-lg font-bold rounded-full hover:scale-105 transition-all duration-300 neon-glow-cyan animate-glow-pulse"
+            className="inline-flex items-center px-10 py-5 text-white text-lg font-bold rounded-full hover:scale-105 transition-all duration-300 animate-breathe"
+            style={{
+              background: 'linear-gradient(90deg, #00d4ff 0%, #a855f7 50%, #ff1493 100%)',
+            }}
           >
             <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -128,7 +133,9 @@ function App() {
             
             {/* Feature 1: The Roadmap */}
             <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-neon-cyan-500 to-neon-cyan-300 rounded-2xl mb-6 flex items-center justify-center neon-glow-cyan">
+              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-purple" style={{
+                background: 'linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)'
+              }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
@@ -143,7 +150,9 @@ function App() {
 
             {/* Feature 2: The Haptic Trainer */}
             <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-neon-pink-500 to-neon-pink-300 rounded-2xl mb-6 flex items-center justify-center neon-glow-pink">
+              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-pink" style={{
+                background: 'linear-gradient(135deg, #ff1493 0%, #a855f7 100%)'
+              }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
@@ -158,7 +167,9 @@ function App() {
 
             {/* Feature 3: The Science */}
             <div className="glass-dark rounded-3xl p-8 hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-neon-green-500 to-neon-green-300 rounded-2xl mb-6 flex items-center justify-center neon-glow-green">
+              <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center neon-glow-green" style={{
+                background: 'linear-gradient(135deg, #39ff14 0%, #00d4ff 100%)'
+              }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
@@ -178,20 +189,20 @@ function App() {
       {/* Stats Section */}
       <section className="relative px-6 py-24">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16 text-glow-cyan">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
             Your journey starts here.
           </h2>
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="text-6xl font-bold text-neon-cyan-400 mb-2 text-glow-cyan">21</div>
+              <div className="text-6xl font-bold mb-2" style={{color: '#00d4ff', textShadow: '0 0 20px rgba(0, 212, 255, 0.6)'}}>21</div>
               <div className="text-purple-200">Days to mastery</div>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold text-neon-pink-400 mb-2">5</div>
+              <div className="text-6xl font-bold mb-2" style={{color: '#ff1493', textShadow: '0 0 20px rgba(255, 20, 147, 0.6)'}}>5</div>
               <div className="text-purple-200">Minutes per day</div>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold text-neon-green-400 mb-2">100%</div>
+              <div className="text-6xl font-bold mb-2" style={{color: '#39ff14', textShadow: '0 0 20px rgba(57, 255, 20, 0.6)'}}>100%</div>
               <div className="text-purple-200">Completely discreet</div>
             </div>
           </div>
@@ -209,7 +220,10 @@ function App() {
           </p>
           <button 
             onClick={handleDownloadClick}
-            className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-neon-green-500 to-neon-cyan-500 text-brand-purple-900 text-lg font-bold rounded-full hover:scale-105 transition-all duration-300 neon-glow-green"
+            className="inline-flex items-center px-10 py-5 text-white text-lg font-bold rounded-full hover:scale-105 transition-all duration-300 neon-glow-green"
+            style={{
+              background: 'linear-gradient(90deg, #39ff14 0%, #00d4ff 100%)'
+            }}
           >
             <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -232,7 +246,7 @@ function App() {
                 setCurrentPage('privacy')
                 window.scrollTo(0, 0)
               }}
-              className="text-neon-cyan-400 hover:text-neon-cyan-300 transition-colors underline"
+              className="text-purple-400 hover:text-purple-300 transition-colors underline"
             >
               Privacy Policy
             </a>
@@ -245,7 +259,7 @@ function App() {
                 setCurrentPage('terms')
                 window.scrollTo(0, 0)
               }}
-              className="text-neon-cyan-400 hover:text-neon-cyan-300 transition-colors underline"
+              className="text-purple-400 hover:text-purple-300 transition-colors underline"
             >
               Terms of Service
             </a>
@@ -258,8 +272,10 @@ function App() {
 
       {/* Modal with Glassmorphism */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-brand-purple-900/80 backdrop-blur-sm flex items-center justify-center z-50 px-6">
-          <div className="glass-dark rounded-3xl p-8 md:p-12 max-w-md w-full shadow-glass relative border-2 border-neon-cyan-500/30">
+        <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 px-6" style={{
+          background: 'rgba(5, 5, 5, 0.85)'
+        }}>
+          <div className="glass-dark rounded-3xl p-8 md:p-12 max-w-md w-full shadow-glass relative border-2 border-purple-500/30">
             <button 
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 text-purple-300 hover:text-white transition-colors"
@@ -270,7 +286,9 @@ function App() {
             </button>
 
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-neon-cyan-500 to-neon-pink-500 rounded-full mb-6 mx-auto flex items-center justify-center neon-glow-cyan">
+              <div className="w-16 h-16 rounded-full mb-6 mx-auto flex items-center justify-center neon-glow-purple" style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #ff1493 100%)'
+              }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -300,12 +318,15 @@ function App() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-6 py-4 bg-white/10 border-2 border-neon-cyan-500/30 rounded-full focus:outline-none focus:border-neon-cyan-500 text-white placeholder-purple-300 text-lg backdrop-blur-sm"
+                  className="w-full px-6 py-4 bg-white/5 border-2 border-purple-500/30 rounded-full focus:outline-none focus:border-purple-500 text-white placeholder-purple-300 text-lg backdrop-blur-sm"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-4 bg-gradient-to-r from-neon-cyan-500 to-neon-pink-500 text-white font-bold rounded-full hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg neon-glow-cyan"
+                  className="w-full px-6 py-4 text-white font-bold rounded-full hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg neon-glow-pink"
+                  style={{
+                    background: 'linear-gradient(90deg, #00d4ff 0%, #a855f7 50%, #ff1493 100%)'
+                  }}
                 >
                   {isSubmitting ? 'Joining...' : 'Join Waitlist'}
                 </button>
