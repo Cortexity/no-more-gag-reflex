@@ -295,7 +295,7 @@ function App() {
       <section className="relative px-6 py-24">
         <div className="max-w-4xl mx-auto">
           {/* Lips Image */}
-          <div className="text-center mb-18">
+          <div className="text-center mb-22">
             <div className="inline-block" style={{
               filter: 'drop-shadow(0 0 30px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.3))'
             }}>
