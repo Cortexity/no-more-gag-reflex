@@ -130,6 +130,94 @@ function App() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="relative px-6 py-24">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
+            How It Works
+          </h2>
+          <p className="text-center text-purple-200 text-lg mb-16 max-w-3xl mx-auto">
+            A structured, evidence-based protocol for progressive pharyngeal reflex adaptation
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            
+            {/* Phase 1: Days 1-7 */}
+            <div className="glass-dark rounded-3xl p-8 border-2 border-purple-500/30 hover:border-purple-500/50 transition-all duration-300">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-neon-purple-500 to-neon-pink-500 flex items-center justify-center mb-6 mx-auto neon-glow-purple">
+                <span className="text-white font-bold text-2xl">1-7</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                Foundation Phase
+              </h3>
+                        <div className="space-y-3">
+            <div className="flex items-start gap-3">
+              <span className="text-neon-purple-400 text-lg mt-0.5">•</span>
+              <span className="text-purple-200 leading-relaxed">Build baseline awareness through sensory mapping and controlled breathing</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-neon-purple-400 text-lg mt-0.5">•</span>
+              <span className="text-purple-200 leading-relaxed">Activate your parasympathetic nervous system</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-neon-purple-400 text-lg mt-0.5">•</span>
+              <span className="text-purple-200 leading-relaxed">Identify trigger points and establish reflex thresholds</span>
+            </div>
+          </div>
+            </div>
+
+            {/* Phase 2: Days 8-14 */}
+            <div className="glass-dark rounded-3xl p-8 border-2 border-purple-500/30 hover:border-purple-500/50 transition-all duration-300">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-neon-pink-500 to-neon-purple-500 flex items-center justify-center mb-6 mx-auto neon-glow-pink">
+                <span className="text-white font-bold text-2xl">8-14</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                Desensitization Phase
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-pink-400 text-lg mt-0.5">•</span>
+                  <span className="text-purple-200 leading-relaxed">Progressive habituation through gradual exposure and haptic feedback</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-pink-400 text-lg mt-0.5">•</span>
+                  <span className="text-purple-200 leading-relaxed">Systematic conditioning to recalibrate reflex threshold</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-pink-400 text-lg mt-0.5">•</span>
+                  <span className="text-purple-200 leading-relaxed">Build neural pathway adaptations for lasting change</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 3: Days 15-21 */}
+            <div className="glass-dark rounded-3xl p-8 border-2 border-neon-green-500/30 hover:border-neon-green-500/50 transition-all duration-300 neon-glow-green">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-neon-green-500 to-neon-purple-500 flex items-center justify-center mb-6 mx-auto neon-glow-green">
+                <span className="text-white font-bold text-2xl">15-21</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                Mastery Phase
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-lg mt-0.5">•</span>
+                  <span className="text-purple-200 leading-relaxed">Consolidate progress with advanced tolerance training</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-lg mt-0.5">•</span>
+                  <span className="text-purple-200 leading-relaxed">Master conscious sensory control and voluntary reflex regulation techniques</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-neon-green-400 text-lg mt-0.5">•</span>
+                  <span className="text-purple-200 leading-relaxed">Achieve sustained, long-term pharyngeal desensitization</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Visual Comparison Section */}
       <section className="relative px-6 py-8">
         <div className="max-w-5xl mx-auto">
