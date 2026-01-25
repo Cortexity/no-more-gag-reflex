@@ -150,20 +150,9 @@ function App() {
               <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 Foundation Phase
               </h3>
-                        <div className="space-y-3">
-            <div className="flex items-start gap-3">
-              <span className="text-neon-purple-400 text-lg mt-0.5">•</span>
-              <span className="text-purple-200 leading-relaxed">Build baseline awareness through sensory mapping and controlled breathing</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-neon-purple-400 text-lg mt-0.5">•</span>
-              <span className="text-purple-200 leading-relaxed">Activate your parasympathetic nervous system</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-neon-purple-400 text-lg mt-0.5">•</span>
-              <span className="text-purple-200 leading-relaxed">Identify trigger points and establish reflex thresholds</span>
-            </div>
-          </div>
+              <p className="text-purple-200 leading-relaxed">
+                Build baseline awareness through sensory mapping and controlled breathing techniques. Learn to activate your parasympathetic nervous system while identifying trigger points and establishing reflex threshold benchmarks.
+              </p>
             </div>
 
             {/* Phase 2: Days 8-14 */}
@@ -174,20 +163,9 @@ function App() {
               <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 Desensitization Phase
               </h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="text-neon-pink-400 text-lg mt-0.5">•</span>
-                  <span className="text-purple-200 leading-relaxed">Progressive habituation through gradual exposure and haptic feedback</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-neon-pink-400 text-lg mt-0.5">•</span>
-                  <span className="text-purple-200 leading-relaxed">Systematic conditioning to recalibrate reflex threshold</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-neon-pink-400 text-lg mt-0.5">•</span>
-                  <span className="text-purple-200 leading-relaxed">Build neural pathway adaptations for lasting change</span>
-                </div>
-              </div>
+              <p className="text-purple-200 leading-relaxed">
+                Progressive habituation through gradual exposure and haptic feedback. Systematic conditioning exercises recalibrate your reflex threshold while building neural pathway adaptations for lasting change.
+              </p>
             </div>
 
             {/* Phase 3: Days 15-21 */}
@@ -198,20 +176,9 @@ function App() {
               <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 Mastery Phase
               </h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-lg mt-0.5">•</span>
-                  <span className="text-purple-200 leading-relaxed">Consolidate progress with advanced tolerance training</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-lg mt-0.5">•</span>
-                  <span className="text-purple-200 leading-relaxed">Master conscious sensory control and voluntary reflex regulation techniques</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-lg mt-0.5">•</span>
-                  <span className="text-purple-200 leading-relaxed">Achieve sustained, long-term pharyngeal desensitization</span>
-                </div>
-              </div>
+              <p className="text-purple-200 leading-relaxed">
+                Consolidate your progress with advanced tolerance training. Master conscious sensory control and voluntary reflex suppression techniques for sustained, long-term pharyngeal desensitization.
+              </p>
             </div>
 
           </div>
@@ -482,14 +449,14 @@ function App() {
                 background: 'linear-gradient(135deg, #a855f7 0%, #ff1493 100%)'
               }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Beta Access Full
+                Secure Early Access
               </h3>
               <p className="text-purple-200 leading-relaxed">
-                Join the waitlist for the next cohort. We'll notify you as soon as spots open up.
+            Join the waitlist and get notified as soon as we launch.
               </p>
             </div>
 
