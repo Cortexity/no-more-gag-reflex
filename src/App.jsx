@@ -41,6 +41,15 @@ function App() {
   }, [])
 
   const handleDownloadClick = () => {
+    // Track InitiateCheckout event when user clicks Download button
+    if (window.fbq) {
+      window.fbq('track', 'InitiateCheckout', {
+        content_name: 'ReflexFlow Waitlist',
+        content_category: 'App Download',
+        value: 0,
+        currency: 'USD'
+      });
+    }
     setIsModalOpen(true)
   }
 
@@ -61,6 +70,17 @@ function App() {
         ])
 
       if (error) throw error
+
+      // Track Lead event on successful email submission
+      if (window.fbq) {
+        window.fbq('track', 'Lead', {
+          content_name: 'ReflexFlow Waitlist',
+          content_category: 'Email Signup',
+          value: 0,
+          currency: 'USD',
+          country: country
+        });
+      }
 
       setSubmitStatus('success')
       setEmail('')
