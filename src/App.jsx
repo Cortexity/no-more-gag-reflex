@@ -172,15 +172,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-purple-400 leading-relaxed">•</span>
                   <span>Learn to control your gag reflex through gentle awareness exercises</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-purple-400 leading-relaxed">•</span>
                   <span>Identify your triggers and build baseline comfort</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
+                  <span className="text-purple-400 leading-relaxed">•</span>
                   <span>Use structured breathing and relaxation techniques</span>
                 </li>
               </ul>
@@ -196,15 +196,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 mt-1">•</span>
+                  <span className="text-pink-400 leading-relaxed">•</span>
                   <span>Gradually reduce your gag reflex sensitivity</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 mt-1">•</span>
+                  <span className="text-pink-400 leading-relaxed">•</span>
                   <span>Build comfort going deeper with guided techniques</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 mt-1">•</span>
+                  <span className="text-pink-400 leading-relaxed">•</span>
                   <span>Get haptic feedback that retrains your natural response</span>
                 </li>
               </ul>
@@ -220,15 +220,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 mt-1">•</span>
+                  <span className="text-neon-green-400 leading-relaxed">•</span>
                   <span>Achieve total oral confidence with advanced exercises</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 mt-1">•</span>
+                  <span className="text-neon-green-400 leading-relaxed">•</span>
                   <span>Master your gag reflex completely</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 mt-1">•</span>
+                  <span className="text-neon-green-400 leading-relaxed">•</span>
                   <span>Go as deep as you want without hesitation or discomfort</span>
                 </li>
               </ul>
@@ -335,15 +335,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 mt-1">•</span>
+                  <span className="text-cyan-400 leading-relaxed">•</span>
                   <span>Complete 21-day program to eliminate gagging</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 mt-1">•</span>
+                  <span className="text-cyan-400 leading-relaxed">•</span>
                   <span>Daily exercises that build progressively</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 mt-1">•</span>
+                  <span className="text-cyan-400 leading-relaxed">•</span>
                   <span>Gain comfort and confidence for deeper oral intimacy</span>
                 </li>
               </ul>
@@ -363,15 +363,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 mt-1">•</span>
+                  <span className="text-pink-400 leading-relaxed">•</span>
                   <span>Phone vibration guides your training sessions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 mt-1">•</span>
+                  <span className="text-pink-400 leading-relaxed">•</span>
                   <span>Get real-time feedback as you practice</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 mt-1">•</span>
+                  <span className="text-pink-400 leading-relaxed">•</span>
                   <span>Track your progress toward eliminating your gag reflex</span>
                 </li>
               </ul>
@@ -391,15 +391,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 mt-1">•</span>
+                  <span className="text-neon-green-400 leading-relaxed">•</span>
                   <span>Science-backed desensitization methods that work</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 mt-1">•</span>
+                  <span className="text-neon-green-400 leading-relaxed">•</span>
                   <span>Combines gradual exposure therapy with breathing techniques</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 mt-1">•</span>
+                  <span className="text-neon-green-400 leading-relaxed">•</span>
                   <span>Retrain your gag reflex permanently</span>
                 </li>
               </ul>
