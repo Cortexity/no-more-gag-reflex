@@ -539,10 +539,10 @@ function App() {
                 </svg>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Join the Waitlist
+                We launch in 7 days!
               </h3>
               <p className="text-purple-200 leading-relaxed">
-            Be first to get ReflexFlow and start your journey to deeper oral confidence in 21 days.
+            We'll notify you via email as soon as it's live!  
               </p>
             </div>
 
