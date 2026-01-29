@@ -73,21 +73,23 @@
       
       // Monitor for tracking requests
       setTimeout(function() {
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4267B2; font-weight: bold;');
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4267B2; font-weight: bold;');
         console.log('%c   PIXEL STATUS CHECK', 'background: #4267B2; color: white; padding: 10px; font-size: 14px;');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4267B2; font-weight: bold;');
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4267B2; font-weight: bold;');
         console.log('fbq loaded:', window.fbq && window.fbq.loaded);
         console.log('fbq version:', window.fbq && window.fbq.version);
         console.log('%c⚠️  Check Network tab for requests to facebook.com/tr/', 'color: #FF9800; font-size: 14px; font-weight: bold;');
       }, 2000);
     </script>
+    <!-- End Facebook Pixel Code -->
+  </head>
+  <body>
+    <!-- Facebook Pixel noscript - MOVED HERE -->
     <noscript>
       <img height="1" width="1" style="display:none"
            src="https://www.facebook.com/tr?id=876316645261417&ev=PageView&noscript=1"/>
     </noscript>
-    <!-- End Facebook Pixel Code -->
-  </head>
-  <body>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
