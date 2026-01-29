@@ -558,10 +558,10 @@ function App() {
                 </svg>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Get Notified When We Launch
+                We launch in 7 days
               </h3>
               <p className="text-purple-200 leading-relaxed">
-                Join the waitlist for early access
+                Get notified as soon as we are live!
               </p>
             </div>
 
