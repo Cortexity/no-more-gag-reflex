@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Allura&display=swap" rel="stylesheet" />
     
-    <!-- Facebook Pixel Code with Enhanced Debugging -->
+    <!-- Facebook Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -36,33 +36,16 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      
-      // Initialize pixel
       fbq('init', '876316645261417');
-      
-      // Track PageView
       fbq('track', 'PageView');
-      
-      // Console log for debugging
-      console.log('✅ Facebook Pixel Initialized: 876316645261417');
-      console.log('✅ PageView event tracked at:', new Date().toISOString());
-      
-      // Add global error handler for pixel issues
-      window.addEventListener('error', function(e) {
-        if (e.message && e.message.includes('fbq')) {
-          console.error('❌ Facebook Pixel Error:', e.message);
-        }
-      });
     </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=876316645261417&ev=PageView&noscript=1"/>
+    </noscript>
     <!-- End Facebook Pixel Code -->
   </head>
   <body>
-    <!-- Facebook Pixel noscript (FIXED with correct Pixel ID) -->
-    <noscript>
-      <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=876316645261417&ev=PageView&noscript=1"/>
-    </noscript>
-    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
