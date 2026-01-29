@@ -26,8 +26,58 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Allura&display=swap" rel="stylesheet" />
     
+    <!-- COMPREHENSIVE PIXEL DEBUGGER -->
+    <script>
+      console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4267B2; font-weight: bold;');
+      console.log('%c   FACEBOOK PIXEL DEBUGGER ACTIVE', 'background: #4267B2; color: white; padding: 10px; font-size: 16px; font-weight: bold;');
+      console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4267B2; font-weight: bold;');
+      
+      // Track all network requests
+      const originalFetch = window.fetch;
+      window.fetch = function(...args) {
+        const url = args[0];
+        if (url && (url.includes('facebook') || url.includes('fbcdn'))) {
+          console.log('📡 FETCH REQUEST TO FACEBOOK:', url);
+        }
+        return originalFetch.apply(this, args);
+      };
+      
+      // Track all XHR requests
+      const originalOpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function(method, url) {
+        if (url && (url.includes('facebook') || url.includes('fbcdn'))) {
+          console.log('📡 XHR REQUEST TO FACEBOOK:', method, url);
+        }
+        return originalOpen.apply(this, arguments);
+      };
+      
+      // Monitor script loading
+      const originalCreateElement = document.createElement;
+      document.createElement = function(tagName) {
+        const element = originalCreateElement.call(document, tagName);
+        if (tagName.toLowerCase() === 'script') {
+          const originalSetAttribute = element.setAttribute.bind(element);
+          element.setAttribute = function(name, value) {
+            if (name === 'src' && value && (value.includes('facebook') || value.includes('fbevents'))) {
+              console.log('📜 SCRIPT TAG CREATED FOR:', value);
+              element.addEventListener('load', () => {
+                console.log('✅ SCRIPT LOADED:', value);
+              });
+              element.addEventListener('error', (e) => {
+                console.error('❌ SCRIPT FAILED TO LOAD:', value, e);
+              });
+            }
+            return originalSetAttribute(name, value);
+          };
+        }
+        return element;
+      };
+    </script>
+    
     <!-- Facebook Pixel Code -->
     <script>
+      console.log('🔧 Starting Facebook Pixel initialization...');
+      
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -36,8 +86,38 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
+      
+      console.log('🔧 Pixel base code executed');
+      console.log('🔧 fbq function created:', typeof window.fbq);
+      
       fbq('init', '876316645261417');
+      console.log('✅ Pixel initialized with ID: 876316645261417');
+      
       fbq('track', 'PageView');
+      console.log('📊 PageView event tracked');
+      
+      // Wait for script to fully load
+      setTimeout(function() {
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #00C853; font-weight: bold;');
+        console.log('%c   PIXEL STATUS CHECK (2 seconds after load)', 'background: #00C853; color: white; padding: 10px; font-size: 14px;');
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #00C853; font-weight: bold;');
+        console.log('✅ fbq exists:', typeof window.fbq === 'function');
+        console.log('✅ fbq.loaded:', window.fbq ? window.fbq.loaded : 'N/A');
+        console.log('✅ fbq.version:', window.fbq ? window.fbq.version : 'N/A');
+        console.log('✅ fbq.queue length:', window.fbq && window.fbq.queue ? window.fbq.queue.length : 'N/A');
+        
+        // Check if script loaded
+        const fbScript = document.querySelector('script[src*="fbevents.js"]');
+        console.log('✅ Script element found:', !!fbScript);
+        
+        // Check for any console errors
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #FFA000; font-weight: bold;');
+        console.log('%c   LOOK FOR NETWORK REQUESTS', 'background: #FFA000; color: white; padding: 10px; font-size: 14px;');
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #FFA000; font-weight: bold;');
+        console.log('⚠️  Open DevTools Network tab and filter by "facebook"');
+        console.log('⚠️  You should see requests to facebook.com/tr/');
+        console.log('⚠️  If you DON\'T see any requests, Facebook Pixel is being BLOCKED');
+      }, 2000);
     </script>
     <noscript>
       <img height="1" width="1" style="display:none"
@@ -48,5 +128,15 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Additional debugging after React loads -->
+    <script>
+      window.addEventListener('load', function() {
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #9C27B0; font-weight: bold;');
+        console.log('%c   PAGE FULLY LOADED', 'background: #9C27B0; color: white; padding: 10px; font-size: 14px;');
+        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #9C27B0; font-weight: bold;');
+        console.log('Pixel still available:', typeof window.fbq === 'function');
+      });
+    </script>
   </body>
 </html>
