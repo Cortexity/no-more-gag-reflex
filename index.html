@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
     <!-- SEO Meta Tags -->
-    <title>Confidence App – Transform Your Comfort in 14 Days</title>
-    <meta name="description" content="A science-backed approach to reducing sensitivity and building lasting confidence. Transform your comfort in just 14 days." />
+    <title>ReflexFlow – Stop Gagging in 21 Days</title>
+    <meta name="description" content="A science-backed approach to reducing gag reflex sensitivity. Transform your oral confidence in just 21 days." />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Confidence App – Transform Your Comfort in 14 Days" />
-    <meta property="og:description" content="A science-backed approach to reducing sensitivity and building lasting confidence." />
+    <meta property="og:title" content="ReflexFlow – Stop Gagging in 21 Days" />
+    <meta property="og:description" content="A science-backed approach to reducing gag reflex sensitivity. Master your comfort in 21 days." />
     
     <!-- Apple-specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Confidence" />
+    <meta name="apple-mobile-web-app-title" content="ReflexFlow" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Allura&display=swap" rel="stylesheet" />
     
-    <!-- Facebook Pixel Code (replace with your pixel ID) -->
+    <!-- Facebook Pixel Code with Enhanced Debugging -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -36,16 +36,31 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '876316645261417'); 
+      
+      // Initialize pixel
+      fbq('init', '876316645261417');
+      
+      // Track PageView
       fbq('track', 'PageView');
+      
+      // Console log for debugging
+      console.log('✅ Facebook Pixel Initialized: 876316645261417');
+      console.log('✅ PageView event tracked at:', new Date().toISOString());
+      
+      // Add global error handler for pixel issues
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.includes('fbq')) {
+          console.error('❌ Facebook Pixel Error:', e.message);
+        }
+      });
     </script>
     <!-- End Facebook Pixel Code -->
   </head>
   <body>
-    <!-- Facebook Pixel noscript -->
+    <!-- Facebook Pixel noscript (FIXED with correct Pixel ID) -->
     <noscript>
       <img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=876316645261417&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=876316645261417&ev=PageView&noscript=1"/>
     </noscript>
     
     <div id="root"></div>

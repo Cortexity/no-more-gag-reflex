@@ -8,6 +8,31 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+// Enhanced Pixel Tracking Helper
+const trackPixelEvent = (eventName, eventData = {}) => {
+  try {
+    if (typeof window.fbq !== 'function') {
+      console.error('❌ Facebook Pixel not loaded!')
+      return false
+    }
+    
+    // Track the event
+    window.fbq('track', eventName, eventData)
+    
+    // Log for debugging
+    console.log(`✅ Pixel Event Tracked: ${eventName}`, {
+      timestamp: new Date().toISOString(),
+      data: eventData,
+      url: window.location.href
+    })
+    
+    return true
+  } catch (error) {
+    console.error(`❌ Failed to track ${eventName}:`, error)
+    return false
+  }
+}
+
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -37,19 +62,48 @@ function App() {
   // Get country from URL parameters (from Facebook ads UTM)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    setCountry(params.get('country') || 'unknown')
+    const countryParam = params.get('country') || 'unknown'
+    setCountry(countryParam)
+    
+    console.log('🌍 Country detected:', countryParam)
+    console.log('🔗 Full URL:', window.location.href)
+  }, [])
+
+  // Debug: Check if Pixel is loaded
+  useEffect(() => {
+    const checkPixel = setInterval(() => {
+      if (typeof window.fbq === 'function') {
+        console.log('✅ Facebook Pixel is loaded and ready')
+        clearInterval(checkPixel)
+      } else {
+        console.warn('⏳ Waiting for Facebook Pixel to load...')
+      }
+    }, 500)
+
+    // Stop checking after 5 seconds
+    setTimeout(() => clearInterval(checkPixel), 5000)
+
+    return () => clearInterval(checkPixel)
   }, [])
 
   const handleDownloadClick = () => {
+    console.log('🖱️ Download button clicked')
+    
     // Track InitiateCheckout event when user clicks Download button
-    if (window.fbq) {
-      window.fbq('track', 'InitiateCheckout', {
-        content_name: 'ReflexFlow Waitlist',
-        content_category: 'App Download',
-        value: 0,
-        currency: 'USD'
-      });
+    const tracked = trackPixelEvent('InitiateCheckout', {
+      content_name: 'ReflexFlow Waitlist',
+      content_category: 'App Download',
+      value: 0,
+      currency: 'USD',
+      country: country
+    })
+
+    if (tracked) {
+      console.log('✅ InitiateCheckout event sent successfully')
+    } else {
+      console.error('❌ Failed to track InitiateCheckout')
     }
+
     setIsModalOpen(true)
   }
 
@@ -58,8 +112,15 @@ function App() {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
+    console.log('📧 Email submission started:', {
+      email: email,
+      country: country,
+      timestamp: new Date().toISOString()
+    })
+
     try {
-      const { error } = await supabase
+      // Insert into Supabase
+      const { data, error } = await supabase
         .from('waitlist')
         .insert([
           { 
@@ -68,18 +129,28 @@ function App() {
             created_at: new Date().toISOString()
           }
         ])
+        .select()
 
-      if (error) throw error
+      if (error) {
+        console.error('❌ Supabase Error:', error)
+        throw error
+      }
+
+      console.log('✅ Email saved to Supabase:', data)
 
       // Track Lead event on successful email submission
-      if (window.fbq) {
-        window.fbq('track', 'Lead', {
-          content_name: 'ReflexFlow Waitlist',
-          content_category: 'Email Signup',
-          value: 0,
-          currency: 'USD',
-          country: country
-        });
+      const tracked = trackPixelEvent('Lead', {
+        content_name: 'ReflexFlow Waitlist',
+        content_category: 'Email Signup',
+        value: 1,
+        currency: 'USD',
+        country: country
+      })
+
+      if (tracked) {
+        console.log('✅ Lead event sent successfully')
+      } else {
+        console.error('❌ Failed to track Lead event')
       }
 
       setSubmitStatus('success')
@@ -91,7 +162,7 @@ function App() {
         setSubmitStatus(null)
       }, 2000)
     } catch (error) {
-      console.error('Error:', error)
+      console.error('❌ Submission Error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -172,15 +243,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 leading-relaxed">•</span>
+                  <span className="text-purple-400">•</span>
                   <span>Learn to control your gag reflex through gentle awareness exercises</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 leading-relaxed">•</span>
+                  <span className="text-purple-400">•</span>
                   <span>Identify your triggers and build baseline comfort</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-400 leading-relaxed">•</span>
+                  <span className="text-purple-400">•</span>
                   <span>Use structured breathing and relaxation techniques</span>
                 </li>
               </ul>
@@ -196,15 +267,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 leading-relaxed">•</span>
+                  <span className="text-pink-400">•</span>
                   <span>Gradually reduce your gag reflex sensitivity</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 leading-relaxed">•</span>
+                  <span className="text-pink-400">•</span>
                   <span>Build comfort going deeper with guided techniques</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-pink-400 leading-relaxed">•</span>
+                  <span className="text-pink-400">•</span>
                   <span>Get haptic feedback that retrains your natural response</span>
                 </li>
               </ul>
@@ -220,15 +291,15 @@ function App() {
               </h3>
               <ul className="text-purple-200 leading-relaxed space-y-3">
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 leading-relaxed">•</span>
+                  <span className="text-green-400">•</span>
                   <span>Achieve total oral confidence with advanced exercises</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 leading-relaxed">•</span>
+                  <span className="text-green-400">•</span>
                   <span>Master your gag reflex completely</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 leading-relaxed">•</span>
+                  <span className="text-green-400">•</span>
                   <span>Go as deep as you want without hesitation or discomfort</span>
                 </li>
               </ul>
@@ -270,20 +341,20 @@ function App() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-red-400 text-xl flex-shrink-0">×</span>
-                  <p className="text-purple-200 leading-relaxed">Instant gagging, can't go deep</p>
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">High Sensitivity & Triggering</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-red-400 text-xl flex-shrink-0">×</span>
-                  <p className="text-purple-200 leading-relaxed">Anxiety and self-consciousness</p>
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">Performance Anxiety</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-red-400 text-xl flex-shrink-0">×</span>
-                  <p className="text-purple-200 leading-relaxed">Throat tension and discomfort</p>
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">Physical Tension & Gulping</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-red-400 text-xl flex-shrink-0">×</span>
-                  <p className="text-purple-200 leading-relaxed">Limited intimate confidence</p>
+                  <span className="text-red-400 text-xl flex-shrink-0">❌</span>
+                  <p className="text-purple-200 leading-relaxed">Lack of Confidence</p>
                 </div>
               </div>
             </div>
@@ -295,20 +366,20 @@ function App() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-xl flex-shrink-0">✓</span>
-                  <p className="text-white leading-relaxed font-medium">No more gagging - total control</p>
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Controlled Sensory Threshold</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-xl flex-shrink-0">✓</span>
-                  <p className="text-white leading-relaxed font-medium">Go deeper without discomfort</p>
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Calm Nasal Breathing</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-xl flex-shrink-0">✓</span>
-                  <p className="text-white leading-relaxed font-medium">Relaxed throat, no tension</p>
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Relaxed & Open Palate</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-neon-green-400 text-xl flex-shrink-0">✓</span>
-                  <p className="text-white leading-relaxed font-medium">Total oral confidence</p>
+                  <span className="text-neon-green-400 text-xl flex-shrink-0">✅</span>
+                  <p className="text-white leading-relaxed font-medium">Total Oral Confidence</p>
                 </div>
               </div>
             </div>
@@ -333,20 +404,9 @@ function App() {
               <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 The Roadmap
               </h3>
-              <ul className="text-purple-200 leading-relaxed space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 leading-relaxed">•</span>
-                  <span>Complete 21-day program to eliminate gagging</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 leading-relaxed">•</span>
-                  <span>Daily exercises that build progressively</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 leading-relaxed">•</span>
-                  <span>Gain comfort and confidence for deeper oral intimacy</span>
-                </li>
-              </ul>
+              <p className="text-purple-200 leading-relaxed">
+                A personalized 21-day progressive program. Each day builds on the last, gradually expanding your comfort zone with precision and care.
+              </p>
             </div>
 
             {/* Feature 2: The Haptic Trainer */}
@@ -361,20 +421,9 @@ function App() {
               <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 The Haptic Trainer
               </h3>
-              <ul className="text-purple-200 leading-relaxed space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-pink-400 leading-relaxed">•</span>
-                  <span>Phone vibration guides your training sessions</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-pink-400 leading-relaxed">•</span>
-                  <span>Get real-time feedback as you practice</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-pink-400 leading-relaxed">•</span>
-                  <span>Track your progress toward eliminating your gag reflex</span>
-                </li>
-              </ul>
+              <p className="text-purple-200 leading-relaxed">
+                Gentle vibration patterns guide your sessions. Real-time feedback helps you understand progress and stay motivated.
+              </p>
             </div>
 
             {/* Feature 3: The Science */}
@@ -389,20 +438,9 @@ function App() {
               <h3 className="text-2xl font-bold text-white mb-4 text-center">
                 The Science
               </h3>
-              <ul className="text-purple-200 leading-relaxed space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 leading-relaxed">•</span>
-                  <span>Science-backed desensitization methods that work</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 leading-relaxed">•</span>
-                  <span>Combines gradual exposure therapy with breathing techniques</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-neon-green-400 leading-relaxed">•</span>
-                  <span>Retrain your gag reflex permanently</span>
-                </li>
-              </ul>
+              <p className="text-purple-200 leading-relaxed">
+                Built on proven desensitization techniques. Systematic exposure therapy combined with mindfulness creates lasting adaptation.
+              </p>
             </div>
 
           </div>
@@ -435,32 +473,13 @@ function App() {
       {/* Final CTA with Neon Glow */}
       <section className="relative px-6 py-24">
         <div className="max-w-4xl mx-auto">
-          {/* Lips Image */}
-          {/* COMMENTED OUT - Lips Image
-          <div className="text-center mb-20">
-            <div className="inline-block" style={{
-              filter: 'drop-shadow(0 0 30px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.3))'
-            }}>
-              <img 
-                src="/lips_with_saliva_in_middle.png" 
-                alt="Oral Confidence Transformation" 
-                className="w-full max-w-md mx-auto rounded-2xl"
-                onError={(e) => {
-                  console.error('Image failed to load');
-                  e.target.style.display = 'none';
-                }}
-              />
-            </div>
-          </div>
-          */}
-
           {/* CTA Content */}
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Total Oral Confidence
+              Unlock Your Full Potential
             </h2>
             <p className="text-xl text-purple-200 mb-12 font-light">
-              Eliminate your gag reflex for deeper intimacy
+              Science-backed reflex regulation
             </p>
             <button 
               onClick={handleDownloadClick}
@@ -481,7 +500,7 @@ function App() {
       {/* Footer */}
       <footer className="relative px-6 py-12 border-t border-purple-700/30">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-purple-300 text-sm mb-3">Â© 2026 ReflexFlow. All rights reserved.</p>
+          <p className="text-purple-300 text-sm mb-3">© 2026 ReflexFlow. All rights reserved.</p>
           <div className="flex items-center justify-center gap-4 text-sm mb-2">
             <a 
               href="/privacy" 
@@ -539,10 +558,10 @@ function App() {
                 </svg>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                We launch in 7 days!
+                Get Notified When We Launch
               </h3>
               <p className="text-purple-200 leading-relaxed">
-            We'll notify you via email as soon as it's live!  
+                Join the waitlist for early access
               </p>
             </div>
 
@@ -573,7 +592,7 @@ function App() {
                     background: 'linear-gradient(90deg, #00d4ff 0%, #a855f7 50%, #ff1493 100%)'
                   }}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                  {isSubmitting ? 'Joining...' : 'Join Waitlist'}
                 </button>
                 {submitStatus === 'error' && (
                   <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
