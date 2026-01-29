@@ -592,7 +592,7 @@ function App() {
                     background: 'linear-gradient(90deg, #00d4ff 0%, #a855f7 50%, #ff1493 100%)'
                   }}
                 >
-                  {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
                 {submitStatus === 'error' && (
                   <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
